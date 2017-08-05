@@ -322,7 +322,7 @@ CONFIG_DIR = APP_VAR
 if options.nmon_app:
     NMON_APP = options.nmon_app
 else:
-    NMON_APP = '/etc/app'
+    NMON_APP = '/etc/nmon-logger'
 
 APP = NMON_APP
 
