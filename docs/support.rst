@@ -51,7 +51,7 @@ Splunk Answers
 
 Access previous messages of users or open your own discussion:
 
-https://splunkbase.splunk.com/app/3248
+https://splunkbase.splunk.com/app/3668
 
 http://answers.splunk.com/answers/app/1753
 
