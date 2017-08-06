@@ -18,6 +18,6 @@ else
         exit 1
 fi
 
-${APP}/bin/nmon_helper.sh 2>&1 | ${APP}/bin/hec_wrapper.sh $SPLUNK_HOME/var/log/nmon-logger/nmon_collect.log nmon_collect collect:http
+${APP}/bin/nmon_helper.sh 2>&1 | ${APP}/bin/hec_wrapper.sh $SPLUNK_HOME/var/log/nmon/nmon_collect.log nmon_collect collect:http
 
 exit 0

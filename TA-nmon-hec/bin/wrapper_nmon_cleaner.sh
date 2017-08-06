@@ -18,6 +18,6 @@ else
         exit 1
 fi
 
-${APP}/bin/nmon_cleaner.sh 2>&1 | ${APP}/bin/hec_wrapper.sh $SPLUNK_HOME/var/log/nmon-logger/nmon_clean.log nmon_clean clean:http
+${APP}/bin/nmon_cleaner.sh 2>&1 | ${APP}/bin/hec_wrapper.sh $SPLUNK_HOME/var/log/nmon/nmon_clean.log nmon_clean clean:http
 
 exit 0

@@ -18,6 +18,6 @@ else
         exit 1
 fi
 
-${APP}/bin/fifo_consumer.sh 2>&1 | ${APP}/bin/hec_wrapper.sh $SPLUNK_HOME/var/log/nmon-logger/nmon_processing.log nmon_processing processing:http
+${APP}/bin/fifo_consumer.sh 2>&1 | ${APP}/bin/hec_wrapper.sh $SPLUNK_HOME/var/log/nmon/nmon_processing.log nmon_processing processing:http
 
 exit 0
