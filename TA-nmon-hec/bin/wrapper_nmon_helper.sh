@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Mandatory for AIX, prevents lib issues
+case `uname` in
+"AIX")
+    unset LIBPATH ;;
+esac
+
 # APP path discovery
 if [ -d "$SPLUNK_HOME/etc/apps/TA-nmon" ]; then
         APP=$SPLUNK_HOME/etc/apps/TA-nmon
