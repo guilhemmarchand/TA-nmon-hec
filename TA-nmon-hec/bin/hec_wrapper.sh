@@ -103,6 +103,12 @@ else
     NO_LOCAL_LOG="False"
 fi
 
+# Check curl availability
+which curl >/dev/null 2>&1
+if [ $? -ne 0 ]; then
+    echo "`log_date`, ${HOST} ERROR, the curl command could not be found, cannot stream to Splunk HEC without curl"
+fi
+
 ############################################
 # functions
 ############################################
@@ -135,7 +141,7 @@ case ${splunk_http_token} in
 ;;
 
 *)
-	curl -s -k -H "Authorization: Splunk ${splunk_http_token}" ${splunk_http_url} -d "{\"host\": \"${HOST}\", \"sourcetype\": \"${splunk_sourcetype}\", \"source\": \"${splunk_source}\", \"event\": \"${output}\"}" >/dev/null
+	curl -s -k -H "Authorization: Splunk ${splunk_http_token}" ${splunk_http_url} -d "{\"host\": \"${HOST}\", \"sourcetype\": \"${splunk_sourcetype}\", \"source\": \"${splunk_source}\", \"event\": \"${output}\"}" 2>&1 >/dev/null
 ;;
 
 esac

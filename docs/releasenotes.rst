@@ -15,6 +15,13 @@ What has been fixed by release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========
+V1.3.30:
+========
+
+- fix: check curl availability in hec_wrapper.sh
+- fix: redirect to null any curl stderr/stdout in hec_wrapper.sh
+
+========
 V1.3.29:
 ========
 
