@@ -16,6 +16,11 @@
 ## 	Your Customizations Go Here            ##
 #################################################
 
+# format date output to strftime dd/mm/YYYY HH:MM:SS
+log_date () {
+    date "+%d-%m-%Y %H:%M:%S"
+}
+
 # Which type of OS are we running
 UNAME=`uname`
 
