@@ -15,7 +15,7 @@ What has been fixed by release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========
-V1.3.30:
+V1.3.31:
 ========
 
 - fix: Python parser issue - epoch time stamp incorrectly parsed for dynamic data #1
