@@ -15,6 +15,13 @@ What has been fixed by release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========
+V1.3.32:
+========
+
+- fix: Python parser - preserve data ordering when possible during key value transformation
+- feature: eventgen implementation (2 AIX and 2 Linux servers with stress load on systems)
+
+========
 V1.3.31:
 ========
 
