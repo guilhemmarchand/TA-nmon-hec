@@ -18,6 +18,13 @@ What has been fixed by release
 V1.3.32:
 ========
 
+- fix: Python parser - header detection correction for nmon external monitoring
+- feature: Add df information for improved file system monitoring and storage capacity planning
+
+========
+V1.3.32:
+========
+
 - fix: Python parser - preserve data ordering when possible during key value transformation
 - feature: eventgen implementation (2 AIX and 2 Linux servers with stress load on systems)
 
