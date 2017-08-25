@@ -15,11 +15,12 @@ What has been fixed by release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========
-V1.3.32:
+V1.3.33:
 ========
 
 - fix: Python parser - header detection correction for nmon external monitoring
 - feature: Add df information for improved file system monitoring and storage capacity planning
+- fix: Perl parser issue - UARG parsing issue for AIX #2
 
 ========
 V1.3.32:
