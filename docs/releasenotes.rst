@@ -19,9 +19,10 @@ V1.3.33:
 ========
 
 - fix: Python parser - header detection correction for nmon external monitoring
-- feature: Add df information for improved file system monitoring and storage capacity planning
 - fix: Perl parser issue - UARG parsing issue for AIX #2
 - fix: unexpected operator issue during process identification #3
+- feature: Add df information for improved file system monitoring and storage capacity planning
+- feature: JFSFILE/JFSINODE are being replaced (and deactivated) by external collection with DF_STORAGE/DF_INODES
 
 ========
 V1.3.32:
