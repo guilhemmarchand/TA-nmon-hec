@@ -111,8 +111,10 @@
 #                                       - Fully Qualified Domain Name improvements #46
 # 2017/09/04, Guilhem Marchand:
 #                                       - Fix unexpected operator issue when pid run time identification fails #47
+# 2017/09/09, Guilhem Marchand:
+#                                       - Missing external scripts generation for Solaris #49
 
-# Version 1.3.60
+# Version 1.3.61
 
 # For AIX / Linux / Solaris
 
@@ -1545,6 +1547,8 @@ case $UNAME in
             "fifo1")
                 case $nmon_external_generation in
                 1)
+                    # nmon_external
+                    create_nmon_external
                     NMON_START="${APP_VAR}/bin/nmon_external_cmd/nmon_external_start_fifo1.sh"
                     export NMON_START
                     NMON_SNAP="${APP_VAR}/bin/nmon_external_cmd/nmon_external_snap_fifo1.sh"
@@ -1557,6 +1561,8 @@ case $UNAME in
             "fifo2")
                 case $nmon_external_generation in
                 1)
+                    # nmon_external
+                    create_nmon_external
                     NMON_START="${APP_VAR}/bin/nmon_external_cmd/nmon_external_start_fifo2.sh"
                     export NMON_START
                     NMON_SNAP="${APP_VAR}/bin/nmon_external_cmd/nmon_external_snap_fifo2.sh"
