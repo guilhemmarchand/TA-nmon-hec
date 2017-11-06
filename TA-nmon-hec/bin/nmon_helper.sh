@@ -113,8 +113,10 @@
 #                                       - Fix unexpected operator issue when pid run time identification fails #47
 # 2017/09/09, Guilhem Marchand:
 #                                       - Missing external scripts generation for Solaris #49
+# 2017/11/06, Guilhem Marchand:
+#                                       - Solaris SARMON now compatible with SPARC processors
 
-# Version 1.3.61
+# Version 1.3.62
 
 # For AIX / Linux / Solaris
 
@@ -152,14 +154,8 @@ if [ -d "$SPLUNK_HOME/etc/apps/TA-nmon" ]; then
 elif [ -d "$SPLUNK_HOME/etc/slave-apps/TA-nmon" ];then
         APP=$SPLUNK_HOME/etc/slave-apps/TA-nmon
 
-elif [ -d "$SPLUNK_HOME/etc/apps/TA-nmon-hec" ]; then
-        APP=$SPLUNK_HOME/etc/apps/TA-nmon-hec
-
-elif [ -d "$SPLUNK_HOME/etc/slave-apps/TA-nmon-hec" ];then
-        APP=$SPLUNK_HOME/etc/slave-apps/TA-nmon-hec
-
 else
-        echo "`log_date`, ${HOST} ERROR, the APP directory could not be defined, is the TA-nmon/TA-nmon-hec installed ?"
+        echo "`log_date`, ${HOST} ERROR, the APP directory could not be defined, is the TA-nmon installed ?"
         exit 1
 fi
 
@@ -935,9 +931,6 @@ if [ ! -x "$NMON" ];then
 	echo ${sun_arch} | grep sparc >/dev/null
 	case $? in
 	0 )
-		# arch is sparc
-        # Unfortunately, the sarmon fifo compatible version is not yet available, switch to old file mechanism
-        mode_fifo="0"
 		NMON="$APP_VAR/bin/sarmon_bin_sparc/sadc" ;;
 	* )
 		# arch is x86

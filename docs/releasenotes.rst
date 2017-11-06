@@ -18,6 +18,12 @@ What has been fixed by release
 V1.3.34:
 ========
 
+- feature: Solaris - SARMON upgrade to v1.12 (Sparc FIFO mode) #6
+
+========
+V1.3.34:
+========
+
 - fix: reactivating the JFSFILE / JFSINODE collections until new core release is available to prevent missing features
 
 ========
