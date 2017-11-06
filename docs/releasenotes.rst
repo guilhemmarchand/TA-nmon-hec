@@ -15,6 +15,12 @@ What has been fixed by release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========
+V1.3.35:
+========
+
+- fix: Rename eventgen.conf to avoid splunkd WARN messages #7
+
+========
 V1.3.34:
 ========
 
