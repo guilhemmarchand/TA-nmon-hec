@@ -115,8 +115,10 @@
 #                                       - Missing external scripts generation for Solaris #49
 # 2017/11/06, Guilhem Marchand:
 #                                       - Solaris SARMON now compatible with SPARC processors
+# 2018/05/11, Guilhem Marchand:
+#                                       - nmon_helper.sh is referring to TA-nmon #10
 
-# Version 1.3.62
+# Version 1.3.63
 
 # For AIX / Linux / Solaris
 
@@ -148,14 +150,14 @@ if [ -z "${SPL_HOME}" ]; then
 fi
 
 # APP path discovery
-if [ -d "$SPLUNK_HOME/etc/apps/TA-nmon" ]; then
-        APP=$SPLUNK_HOME/etc/apps/TA-nmon
+if [ -d "$SPLUNK_HOME/etc/apps/TA-nmon-hec" ]; then
+        APP=$SPLUNK_HOME/etc/apps/TA-nmon-hec
 
-elif [ -d "$SPLUNK_HOME/etc/slave-apps/TA-nmon" ];then
-        APP=$SPLUNK_HOME/etc/slave-apps/TA-nmon
+elif [ -d "$SPLUNK_HOME/etc/slave-apps/TA-nmon-hec" ];then
+        APP=$SPLUNK_HOME/etc/slave-apps/TA-nmon-hec
 
 else
-        echo "`log_date`, ${HOST} ERROR, the APP directory could not be defined, is the TA-nmon installed ?"
+        echo "`log_date`, ${HOST} ERROR, the APP directory could not be defined, is the TA-nmon-hec installed ?"
         exit 1
 fi
 

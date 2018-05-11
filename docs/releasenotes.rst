@@ -15,6 +15,12 @@ What has been fixed by release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========
+V1.3.37:
+========
+
+- fix: nmon_helper.sh is referring to TA-nmon #10
+
+========
 V1.3.36:
 ========
 
