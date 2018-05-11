@@ -48,6 +48,8 @@
 #                                           - Preserve data order during key value transformation
 # - 08/19/2017: V1.0.10: Guilhem Marchand:
 #                                           - fix: improve header check for static sections
+# - 2018/05/11: V1.0.11: Guilhem Marchand:
+#                                           - OpenSSL lib issues on full Splunk instances #9
 
 # Load libs
 
@@ -68,7 +70,7 @@ import json
 import subprocess
 
 # Converter version
-nmon2kv_version = '1.0.10'
+nmon2kv_version = '1.0.11'
 
 # LOGGING INFORMATION:
 # - The program uses the standard logging Python module to display important messages in Splunk logs
@@ -518,7 +520,7 @@ def stream_to_splunk_http(url, token):
     http_data = '-s -k -H \"Authorization: Splunk ' + str(token) + '\" ' + \
                 str(url) + ' -d @' + str(SPLUNK_HEC_BATCHFILE)
 
-    cmd = "unset LIBPATH; curl" + " " + http_data
+    cmd = "unset LIBPATH; unset LD_LIBRARY_PATH; curl" + " " + http_data
     subprocess.call([cmd], shell=True, stdout=FNULL, stderr=subprocess.PIPE)
 
 
@@ -1171,7 +1173,7 @@ if config_run == 0:
                 http_data = '-s -k -H \"Authorization: Splunk ' + str(splunk_http_token) + '\" ' +\
                             str(splunk_http_url) + ' -d @' + str(config_output_final)
 
-                cmd = "unset LIBPATH; curl" + " " + http_data
+                cmd = "unset LIBPATH; unset LD_LIBRARY_PATH; curl" + " " + http_data
                 subprocess.call([cmd], shell=True, stdout=FNULL, stderr=subprocess.PIPE)
 
                 # Clean

@@ -42,8 +42,10 @@
 #                                           - Splunk HEC implementation
 # - 2017/25/08: V1.0.8: Guilhem Marchand:
 #                                           - Perl parser issue - UARG parsing issue for AIX #2
+# - 2018/05/11: V1.0.9: Guilhem Marchand:
+#                                           - OpenSSL lib issues on full Splunk instances #9
 
-$version = "1.0.8";
+$version = "1.0.9";
 
 use Time::Local;
 use Time::HiRes;
@@ -2217,11 +2219,11 @@ sub stream_to_splunk_http () {
 
     # Stream to http
     $curl =
-`unset LIBPATH; curl -s -k -H "Authorization: Splunk $SPLUNK_HTTP_TOKEN" $SPLUNK_HTTP_URL -d \@$SPLUNK_HEC_BATCHFILE 2>&1 /dev/null`;
+`unset LIBPATH; unset LD_LIBRARY_PATH; curl -s -k -H "Authorization: Splunk $SPLUNK_HTTP_TOKEN" $SPLUNK_HTTP_URL -d \@$SPLUNK_HEC_BATCHFILE 2>&1 /dev/null`;
 
     if ($DEBUG) {
         print
-"DEBUG, sending: unset LIBPATH; curl -s -k -H \"Authorization: Splunk $SPLUNK_HTTP_TOKEN\" $SPLUNK_HTTP_URL -d \@$SPLUNK_HEC_BATCHFILE'\n";
+"DEBUG, sending: unset LIBPATH; unset LD_LIBRARY_PATH; curl -s -k -H \"Authorization: Splunk $SPLUNK_HTTP_TOKEN\" $SPLUNK_HTTP_URL -d \@$SPLUNK_HEC_BATCHFILE'\n";
     }
 
     if ( -e $SPLUNK_HEC_BATCHFILE ) {
@@ -2413,12 +2415,12 @@ sub config_extract {
 
         if ($DEBUG) {
             print
-"DEBUG, sending: unset LIBPATH; curl -s -k -H \"Authorization: Splunk $SPLUNK_HTTP_TOKEN\" $SPLUNK_HTTP_URL -d \@$config_output_final'\n";
+"DEBUG, sending: unset LIBPATH; unset LD_LIBRARY_PATH; curl -s -k -H \"Authorization: Splunk $SPLUNK_HTTP_TOKEN\" $SPLUNK_HTTP_URL -d \@$config_output_final'\n";
         }
 
         # Stream to http
         $curl =
-`unset LIBPATH; curl -s -k -H "Authorization: Splunk $SPLUNK_HTTP_TOKEN" $SPLUNK_HTTP_URL -d \@$config_output_final 2>&1 /dev/null`;
+`unset LIBPATH; unset LD_LIBRARY_PATH; curl -s -k -H "Authorization: Splunk $SPLUNK_HTTP_TOKEN" $SPLUNK_HTTP_URL -d \@$config_output_final 2>&1 /dev/null`;
 
         close INSERT_HEC;
 

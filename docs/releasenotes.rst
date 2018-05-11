@@ -15,6 +15,12 @@ What has been fixed by release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ========
+V1.3.36:
+========
+
+- fix: OpenSSL lib issues on full Splunk instances #9
+
+========
 V1.3.35:
 ========
 
