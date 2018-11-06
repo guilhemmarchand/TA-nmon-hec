@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to TA-nmon-nec documentation, the technical addon for Nmon Performance monitor Splunk app!
+Welcome to TA-nmon-hec documentation, the technical addon for Nmon Performance monitor Splunk app!
 ==================================================================================================
 
 .. image:: img/splunk_nmon.png
